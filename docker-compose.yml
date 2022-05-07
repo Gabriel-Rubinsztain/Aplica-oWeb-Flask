@@ -1,0 +1,17 @@
+web:
+  build: .
+  working_dir: /data
+  command: python app.py
+  links:
+    - db
+  volumes:
+    - .:/data
+  ports:
+    - "5005:5005"
+
+db:
+  image: mysql:5.7
+  environment:
+      MYSQL_ROOT_PASSWORD: mudar123
+  ports:
+    - "3309:3309"
